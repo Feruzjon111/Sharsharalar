@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}{{ sharshara.nomi }}{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+    <h2 class="mb-3">{{ sharshara.nomi }}</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ sharshara.rasm.url }}" class="img-fluid rounded shadow" alt="{{ sharshara.nomi }}">
+        </div>
+        <div class="col-md-6">
+            <p>{{ sharshara.tavsif }}</p>
+            <h5>Manzil:</h5>
+            <p>{{ sharshara.manzil }}</p> <!-- agar manzil maydoni bo‘lsa -->
+
+            <!-- Google Maps iframe -->
+            <div class="map-responsive mb-3" style="overflow:hidden; padding-bottom:56.25%; position:relative; height:0;">
+                <iframe src="{{ sharshara.xarita_iframe }}"
+                        width="100%" height="300"
+                        style="border:0; position:absolute; top:0; left:0;"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <a href="{% url 'sharshara_royxati' %}" class="btn btn-outline-secondary mt-3">Orqaga</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Sharsharalar{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Sharsharalar ro‘yxati</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for sharshara in sharsharalar %}
+    <div class="col">
+        <div class="card h-100 shadow">
+            <img src="{{ sharshara.rasm.url }}" class="card-img-top" alt="{{ sharshara.nomi }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ sharshara.nomi }}</h5>
+                <p class="card-text">{{ sharshara.tavsif|truncatewords:15 }}</p>
+                <a href="{% url 'sharshara_detali' sharshara.pk %}" class="btn btn-outline-primary btn-sm">Batafsil</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
